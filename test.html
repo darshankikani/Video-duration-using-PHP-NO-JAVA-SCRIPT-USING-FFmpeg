@@ -1,0 +1,34 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8" /> 
+<title>Video Upload</title> 
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+</head> 
+<body> 
+<form action='file_upload.php' method='post' enctype='multipart/form-data'> 
+ File: <input type='file' name='file' id='fup' /><br> 
+ Duration: <input type='text' name='f_du' id='f_du' size='5' /> seconds<br> 
+ <input type='submit' value='Upload' /> 
+</form> 
+<audio id='audio'></audio> 
+<script>
+
+var f_duration =0; 
+document.getElementById('audio').addEventListener('canplaythrough', function(e){ 
+ f_duration = Math.round(e.currentTarget.duration); 
+ document.getElementById('f_du').value = f_duration; 
+	URL.revokeObjectURL(obUrl); 
+}); 
+ 
+var obUrl; 
+document.getElementById('fup').addEventListener('change', function(e){ 
+ var file = e.currentTarget.files[0]; 
+ if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg|MP4|mkv)$/i)){ 
+ obUrl = URL.createObjectURL(file); 
+ document.getElementById('audio').setAttribute('src', obUrl); 
+ } 
+});
+</script>
+</body> 
+</html>

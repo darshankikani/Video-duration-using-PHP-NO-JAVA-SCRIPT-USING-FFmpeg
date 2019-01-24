@@ -11,4 +11,3 @@ This is useful when you have to know how long video play  which is uploaded in y
  
  create upload folder inside www 
  
-When you upload video then must check name of video do not contain any spce or special character if it contain then rename it like php.mp4 or whatever you want 
